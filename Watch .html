@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width",initial-scale="1.0"/>
+  <title>Watch</title>
+  <style>
+  h1{
+    text-align:center;
+    color:white;
+  }
+  .btn{
+    padding:1.4rem;
+    margin:0.5rem;
+    font-size:0.9rem;
+    border-radius:5px;
+    color:black;
+  }
+  .liv{
+    text-align:center;
+    font-size:3.5rem;
+    color:white;
+  }
+ 
+  
+  body{
+    background-color:rgb(25,2,25);
+  }
+  </style>
+
+</head>
+<body>
+  <h1>
+    Watch
+  </h1>
+  <div class="liv" id="leve">00:00:00</div>
+  <button id="buton" class="btn" onclick="start()">Start</button>
+  <button id="buton" class="btn" onclick="pause()">Pause</button>
+  <button id="buton" class="btn" onclick="restart()">Restart</button>
+
+  
+  <script>
+  
+  let Dive = document.getElementById("leve");
+  let seconds = 0;
+  let minutes = 0;
+  let hours = 0;
+  let tim;
+  function shiip () {
+    seconds++;
+  if( seconds === 60){
+      minutes++;
+      seconds = 0;
+    if( minutes === 60){
+    hours++;
+    };
+  };
+  const luok =
+  String(hours).padStart(2,"0")+":"+
+  String(minutes).padStart(2,"0")+":"+
+  String(seconds).padStart(2,"0");
+Dive.textContent = luok;
+  }
+    
+   function start(){
+     tim = setInterval(  shiip,100)
+   }
+     
+  function pause(){
+    clearInterval(tim);
+  }
+  function restart(){
+    pause()
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    document.getElementById("leve").textContent ="00:00:00";
+  }
+ 
+  </script>
+</body>
+</html>
+
+  </script>
+</body>
+</html>
